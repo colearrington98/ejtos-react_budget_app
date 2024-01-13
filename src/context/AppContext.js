@@ -2,55 +2,69 @@
 
 import React, { createContext, useReducer } from 'react';
 
-// Define your reducer function
 export const AppReducer = (state, action) => {
-    // Remove the unused 'budget' variable
-    // let budget = 0;
-  
-    switch (action.type) {
-      case 'ADD_EXPENSE':
-        // Logic to add an expense to the state
-        // For example: state.expenses.push(action.payload);
-        // Update the state and return it
-        return {
-          ...state,
-          // Update the state based on the action payload
-          // For example: expenses: [...state.expenses, action.payload]
-        };
-  
-      case 'RED_EXPENSE':
-        // Logic to reduce an expense from the state
-        // For example: state.expenses.filter(expense => expense.id !== action.payload.id);
-        // Update the state and return it
-        return {
-          ...state,
-          // Update the state based on the action payload
-          // For example: expenses: updatedExpenses
-        };
-  
-      case 'DELETE_EXPENSE':
-        // Logic to delete an expense from the state
-        // For example: state.expenses.filter(expense => expense.id !== action.payload);
-        // Update the state and return it
-        return {
-          ...state,
-          // Update the state based on the action payload
-          // For example: expenses: updatedExpenses
-        };
-  
-      // ... (other cases)
-  
-      default:
-        return state;
-    }
-  };
+  switch (action.type) {
+    case 'ADD_EXPENSE':
+      // Logic to add an expense to the state
+      // For example: state.expenses.push(action.payload);
+      // Update the state and return it
+      return {
+        ...state,
+        // Update the state based on the action payload
+        // For example: expenses: [...state.expenses, action.payload]
+      };
 
-// Create the context
+    case 'RED_EXPENSE':
+      // Logic to reduce an expense from the state
+      // For example: state.expenses.filter(expense => expense.id !== action.payload.id);
+      // Update the state and return it
+      return {
+        ...state,
+        // Update the state based on the action payload
+        // For example: expenses: updatedExpenses
+      };
+
+    case 'DELETE_EXPENSE':
+      // Logic to delete an expense from the state
+      // For example: state.expenses.filter(expense => expense.id !== action.payload);
+      // Update the state and return it
+      return {
+        ...state,
+        // Update the state based on the action payload
+        // For example: expenses: updatedExpenses
+      };
+
+    case 'SET_BUDGET':
+      // Logic to set the budget in the state
+      // For example: budget: action.payload
+      // Update the state and return it
+      return {
+        ...state,
+        // Update the state based on the action payload
+        // For example: budget: action.payload
+      };
+
+    case 'SET_CURRENCY':
+      // Logic to set the currency in the state
+      // For example: currency: action.payload
+      // Update the state and return it
+      return {
+        ...state,
+        // Update the state based on the action payload
+        // For example: currency: action.payload
+        currency: action.payload,
+      };
+
+    // ... (other cases)
+
+    default:
+      return state;
+  }
+};
+
 export const AppContext = createContext();
 
-// Create the provider component
 export const AppProvider = (props) => {
-  // Sets the initial state when the app loads
   const initialState = {
     budget: 2000,
     expenses: [
@@ -63,7 +77,6 @@ export const AppProvider = (props) => {
     currency: '£'
   };
 
-  // Sets up the app state. takes a reducer, and an initial state
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   let remaining = 0;
@@ -89,4 +102,3 @@ export const AppProvider = (props) => {
     </AppContext.Provider>
   );
 };
-
