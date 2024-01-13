@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+
+.button-increase {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .button-increase:hover {
+    background-color: #45a049;
+  }
+  
+  .button-decrease {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .button-decrease:hover {
+    background-color: #da190b;
+  }
+  
+  .button-delete {
+    background-color: #555; /* Dark gray */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .button-delete:hover {
+    background-color: #333;
+  }
+
+  .button-increase, .button-decrease, .button-delete {
+    border-radius: 50%; /* This will make the buttons round */
+    width: 60px; /* You need to specify a width... */
+    height: 60px; /* ...and a height for the border-radius to take effect */
+}
